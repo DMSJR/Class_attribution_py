@@ -5,6 +5,7 @@ class Functions:
         self.last_semester = []
         self.classes = []
         self.attributed = []
+        self.not_attributed = ["not attributed: "]
 
     def file_man(self):
         vector = []
@@ -49,37 +50,51 @@ class Functions:
             
            
             for j in range(len(self.classes[i])): # percorre as turmas dentro de um horario
+                #print (self.classes[i][j])
                 
                 
                 
                 for m in range (len(self.attributed)):#percorre os professores
                 
-                    bool = True   
+                    bool1 = True  
+                    bool2 = True 
                     for w in range (len(self.last_semester[m])):
                         if self.classes[i][j] == self.last_semester[m][w]:
-                            bool = False
+                            bool1 = False
                             break
                     for k in range(len(self.attributed[m])): #percorre as turmas dos professores
                         if self.classes[i][j] == self.attributed[m][k]:
-                           
-                            bool = False
+                            #print (self.classes[i][j])
+                            bool1 = False
+                            bool2 = False
+                            
                             
                             break
+                    if (bool2 == False):
+                        break    
                     
                     for n in self.attributed[m]: #percorre as turmas do professor m
                         
                         if n in self.classes[i]:
                             
-                            bool = False
+                            bool1 = False
              
                             break
                     
                          
-                    if bool == True:
+                    if bool1 == True:
                         self.attributed[m].append(self.classes[i][j])
                         
+                        
                         break
+                    elif (m == (len(self.attributed)-1)):
+                        self.not_attributed.append(self.classes[i][j])
+
+
+
         print (self.attributed)
+        if( len(self.not_attributed)>1):
+            print(self.not_attributed)
 
 
 if __name__ == "__main__":
