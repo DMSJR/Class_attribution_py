@@ -1,5 +1,6 @@
 # Class_attribution_py
 Code for attributing classes to teachers
+Created for fun, as an adaptation of a C++ code  (https://github.com/DMSJR/class_attribution)
 This program attributes classes to teachers in such a manner that there's no schedule conflict and teacher cannot teach a class they teached last semester.
 It's an adaptation from the other repository, coded in C++.
 
